@@ -43,7 +43,7 @@ Since this is a fork I've made the plugin available in a developer repository at
 * I am open for your suggestions and feedback - Thank you for using or trying out one of my plugins!
 * Drop me a line [@deckerweb](http://twitter.com/#!/deckerweb) on Twitter
 * Follow me on [my Facebook page](http://www.facebook.com/deckerweb.service)
-* Or follow me on [@David Decker](http://deckerweb.de/gplus) on Google Plus ;-)
+* Or follow me on [+David Decker](http://deckerweb.de/gplus) on Google Plus ;-)
 
 = More =
 * [Also see my other plugins](http://genesisthemes.de/en/wp-plugins/) or see [my WordPress.org profile page](http://profiles.wordpress.org/users/daveshine/)
