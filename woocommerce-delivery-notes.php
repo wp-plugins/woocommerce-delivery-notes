@@ -1,89 +1,137 @@
 <?php
 /**
- * Main plugin file. This plugin adds simple Delivery Notes for the WooCommerce Shop Plugin. You can add company/shop info as well as personal notes and policies to the print page.
+ * Main plugin file.
+ * Print order invoices & delivery notes for WooCommerce shop plugin.
+ * You can add company/shop info as well as personal notes & policies to print pages.
  *
- * @package   WooCommerce Delivery Notes
- * @author    David Decker
- * @link      http://twitter.com/#!/deckerweb
- * @copyright Copyright 2011-2012, David Decker - DECKERWEB
+ * @package   WooCommerce Print Invoices & Delivery Notes
+ * @copyright Copyright 2011-2012 Steve Clark, Trigvvy Gunderson, David Decker - DECKERWEB
  *
- * @credits Inspired and based on the plugin "Jigoshop Delivery Notes" by Steve Clark, Trigvvy Gunderson and PiffPaffPuff
- * @link http://www.clark-studios.co.uk/blog/
- * @link https://github.com/piffpaffpuff
+ * @credits   Inspired and based on the plugin "Jigoshop Delivery Notes" by Steve Clark and Trigvvy Gunderson
+ * @link      http://www.clark-studios.co.uk/blog/
+ * @link      https://github.com/piffpaffpuff
  *
- * Plugin Name: WooCommerce Delivery Notes
- * Plugin URI: http://genesisthemes.de/en/wp-plugins/woocommerce-delivery-notes/
- * Description: This plugin adds simple Delivery Notes for the WooCommerce Shop Plugin. You can add company/shop info as well as personal notes and policies to the print page.
- * Version: 1.1
- * Author: David Decker - DECKERWEB
- * Author URI: http://deckerweb.de/
+ * Plugin Name: WooCommerce Print Invoices & Delivery Notes
+ * Plugin URI: https://github.com/deckerweb/woocommerce-delivery-notes
+ * Description: Print order invoices & delivery notes for WooCommerce shop plugin. You can add company/shop info as well as personal notes & policies to print pages.
+ * Version: 1.2
+ * Author: Steve Clark, Triggvy Gunderson, David Decker
+ * Author URI: https://github.com/deckerweb/woocommerce-delivery-notes
  * License: GPLv3
+ * License URI: http://www.opensource.org/licenses/gpl-license.php
  * Text Domain: woocommerce-delivery-notes
  * Domain Path: /languages/
+ *
+ * Copyright 2011-2012 Steve Clark, Trigvvy Gunderson, David Decker - DECKERWEB
+ *		
+ *     This file is part of WooCommerce Print Invoices & Delivery Notes,
+ *     a plugin for WordPress.
+ *
+ *     WooCommerce Print Invoices & Delivery Notes is free software:
+ *     You can redistribute it and/or modify it under the terms of the
+ *     GNU General Public License as published by the Free Software
+ *     Foundation, either version 2 of the License, or (at your option)
+ *     any later version.
+ *
+ *     WooCommerce Print Invoices & Delivery Notes is distributed in the hope that
+ *     it will be useful, but WITHOUT ANY WARRANTY; without even the
+ *     implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+ *     PURPOSE. See the GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with WordPress. If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
- * Setting constants
+ * Base class
  *
  * @since 1.0
  */
-define( 'WCDN_PLUGIN_DIR', dirname( __FILE__ ) );
-define( 'WCDN_PLUGIN_BASEDIR', dirname( plugin_basename( __FILE__ ) ) );
+if ( ! class_exists( 'WooCommerce_Delivery_Notes' ) ) {
 
-
-add_action( 'init', 'ddw_wcdn_init' );
-/**
- * Load the text domain for translation of the plugin
- * 
- * @since 1.0
- * @version 1.1
- */
-function ddw_wcdn_init() {
-
-	load_plugin_textdomain( 'woocommerce-delivery-notes', false, WCDN_PLUGIN_BASEDIR . '/languages' );
-}
-
-
-add_filter( 'plugin_action_links_' . plugin_basename(__FILE__) , 'ddw_wcdn_settings_link' );
-/**
- * Add "Settings" link to plugin page
- *
- * @since 1.0
- *
- * @param  $links
- * @param  $ddw_wcdn_settings_link
- * @return string settings link
- */
-function ddw_wcdn_settings_link( $links ) {
-
-	$ddw_wcdn_settings_link = sprintf( '<a href="%s" title="%s">%s</a>' , admin_url( 'admin.php?page=woocommerce_delivery_notes' ) , __( 'Go to the settings page', 'woocommerce-delivery-notes' ) , __( 'Settings', 'woocommerce-delivery-notes' ) );
+	class WooCommerce_Delivery_Notes {
 	
-	array_unshift( $links, $ddw_wcdn_settings_link );
+		public static $plugin_prefix;
+		public static $plugin_url;
+		public static $plugin_path;
+		public static $plugin_basefile;
+		
+		public $writepanel;
+		public $settings;
+		public $print;
 
-	return $links;
+		/**
+		 * Constructor
+		 *
+		 * @since 1.0
+		 */
+		public function __construct() {
+			self::$plugin_prefix = 'wcdn_';
+			self::$plugin_basefile = plugin_basename(__FILE__);
+			self::$plugin_url = plugin_dir_url(self::$plugin_basefile);
+			self::$plugin_path = trailingslashit(dirname(__FILE__));
+		}
+		
+		/**
+		 * Load the hooks
+		 *
+		 * @since 1.0
+		 */
+		public function load() {
+			add_action( 'init', array( $this, 'load_hooks' ) );
+		}
+		
+		/**
+		 * Load the main plugin classes and functions
+		 *
+		 * @since 1.0
+		 */
+		public function includes() {
+			include_once( 'classes/class-wcdn-writepanel.php' );
+			include_once( 'classes/class-wcdn-settings.php' );
+			include_once( 'classes/class-wcdn-print.php' );
+		}
 
+		/**
+		 * Load the hooks
+		 *
+		 * @since 1.0
+		 */
+		public function load_hooks() {	
+			if ( $this->is_woocommerce_activated() ) {					
+				$this->includes();
+				$this->writepanel = new WooCommerce_Delivery_Notes_Writepanel();
+				$this->writepanel->load();
+				$this->settings = new WooCommerce_Delivery_Notes_Settings();
+				$this->settings->load();
+				$this->print = new WooCommerce_Delivery_Notes_Print();
+				$this->print->load();
+					
+				load_plugin_textdomain( 'woocommerce-delivery-notes', false, dirname( self::$plugin_basefile ) . '/../../languages/woocommerce-delivery-notes/' );
+				load_plugin_textdomain( 'woocommerce-delivery-notes', false, dirname( self::$plugin_basefile ) . '/languages' );
+			}
+		}
+		
+		/**
+		 * Check if woocommerce is activated
+		 *
+		 * @since 1.0
+		 */
+		public function is_woocommerce_activated() {
+			if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	
+	}
 }
 
-
 /**
- * Load admin help tabs and support links on plugins listing page
- * 
+ * Instance of plugin
+ *
  * @since 1.0
  */
-require_once 'wcdn-help.php';
-
-
-/**
- * Load the main plugin classes and functions
- * 
- * @since 1.0
- */
-require_once 'wcdn-classes.php';
-
-
-/**
- * Create an admin instance
- * 
- * @since 1.0
- */
-$wcdn_admin = new WooCommerce_Delivery_Notes_Admin();
+$wcdn = new WooCommerce_Delivery_Notes();
+$wcdn->load();
