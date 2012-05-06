@@ -12,7 +12,7 @@ Print order invoices & delivery notes for WooCommerce shop. You can add company/
 
 == Description ==
 
-With this plugin you can print out simple invoices and delivery notes for the orders via the WooCommerce Shop Plugin. You can edit the Company/Shop name, Company/Shop postal address and also add personal notes, conditions/policies (like a refund policy) and a footer imprint/branding.
+With this plugin you can print out **simple invoices and delivery notes** for the orders **via the WooCommerce Shop Plugin**. You can edit the Company/Shop name, Company/Shop postal address and also add personal notes, conditions/policies (like a refund policy) and a footer imprint/branding.
 
 The plugin adds a new side panel on the order page to allow shop administrators to print out delivery notes. This is useful for a lot of shops that sell goods which need delivery notes for shipping or with added refund policies etc. In some countries (e.g. in the European Union) such refund policies are required so this plugin could help to combine this with the order info for the customer.
 
@@ -45,9 +45,9 @@ Since this is a fork I've made the plugin available in a developer repository at
 
 = Feedback =
 * We are open for your suggestions and feedback! Use the [plugin's forum](http://wordpress.org/tags/woocommerce-delivery-notes?forum_id=10) or [report & contribute on GitHub](https://github.com/deckerweb/woocommerce-delivery-notes/issues)
-* Drop me a line [@deckerweb](http://twitter.com/#!/deckerweb) on Twitter
-* Follow me on [my Facebook page](http://www.facebook.com/deckerweb.service)
-* Or follow me on [+David Decker](http://deckerweb.de/gplus) on Google Plus ;-)
+* Drop Dave a line [@deckerweb](http://twitter.com/#!/deckerweb) on Twitter
+* Follow Dave on [my Facebook page](http://www.facebook.com/deckerweb.service)
+* Or follow Dave on [+David Decker](http://deckerweb.de/gplus) on Google Plus ;-)
 
 = More =
 * [Other plugins from main plugin author](http://profiles.wordpress.org/chabis/)
@@ -63,6 +63,8 @@ Since this is a fork I've made the plugin available in a developer repository at
 5. Go and manage your orders - good luck with sales :)
 
 **Please note:** You must run WordPress 3.3 or higher and WooCommerce 1.4 or higher in order tun this plugin. This is due to changes in WooCommerc v1.4+!
+
+**Own translation/wording:** For custom and update-secure language files please upload them to `/wp-content/languages/woocommerce-delivery-notes/` (just create this folder) - This enables you to use fully custom translations that won't be overridden on plugin updates. Also, complete custom English wording is possible with that, just use a language file like `woocommerce-delivery-notes-en_US.mo/.po` to achieve that (for creating one see the tools on "Other Notes").
 
 == Frequently Asked Questions ==
 
@@ -88,7 +90,7 @@ The other sections get printed as styled via the packaged template (or your cust
 
 Beyond the styling of your template be aware of any special features of your used browser - I highly recommend to use the "Print Preview" feature of your browser which all current versions of Firefox, Chrome and Opera support.
 
-= Can you update the plugin with feature X or option Y?
+= Can you update the plugin with feature X or option Y? =
 Mmh. Maybe.
 
 The basic intention is to have the plugin at the same time as leightweight and useful as possible. So any feature request needs to be reviewed for that reasons.
@@ -160,7 +162,8 @@ Enjoy using *WooCommerce Print Invoices & Delivery Notes*? Please consider [maki
 * Dutch (nl_NL): Nederlands - user-submitted by [Ramon van Belzen](http://profiles.wordpress.org/Ramoonus/)
 * Swedish (sv_SE): Svenska - user-submitted by [Christopher Anderton](http://www.deluxive.se/)
 * Spanish (es_ES): Español - user-submitted by @JAVidania
-* French (fr_FR): Français - user-submitted by Olivier 
+* French (fr_FR): Français - user-submitted by Olivier
+* For custom and update-secure language files please upload them to `/wp-content/languages/woocommerce-delivery-notes/` (just create this folder) - This enables you to use fully custom translations that won't be overridden on plugin updates. Also, complete custom English wording is possible with that as well, just use a language file like `woocommerce-delivery-notes-en_US.mo/.po` to achieve that.
 
 **Easy plugin translation platform with GlotPress tool: [Translate "WooCommerce Print Invoices & Delivery Notes"...](http://translate.wpautobahn.com/projects/wordpress-plugins-deckerweb/woocommerce-delivery-notes)**
 
@@ -170,4 +173,4 @@ Enjoy using *WooCommerce Print Invoices & Delivery Notes*? Please consider [maki
 **Idea Behind / Philosophy:** Just a little plugin for all the WooCommerce shop managers out there to make their daily shop admin life a bit easier.
 
 == Credits ==
-* Thanx to WooThemes company and WooCommerce team for promoting this plugin on their official homepage as well as on the download page here on wordpress.org! ;-)
+Thanks to WooThemes company and WooCommerce team for promoting this plugin on their official homepage as well as on the download page here on wordpress.org! ;-)
