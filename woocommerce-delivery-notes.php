@@ -12,12 +12,12 @@
  * @link      https://github.com/piffpaffpuff
  *
  * Plugin Name: WooCommerce Print Invoices & Delivery Notes
- * Plugin URI: https://github.com/deckerweb/woocommerce-delivery-notes
+ * Plugin URI: https://github.com/piffpaffpuff/woocommerce-delivery-notes
  * Description: Print order invoices & delivery notes for WooCommerce shop plugin. You can add company/shop info as well as personal notes & policies to print pages.
  * Version: 1.2
  * Author: Steve Clark, Triggvy Gunderson, David Decker
- * Author URI: https://github.com/deckerweb/woocommerce-delivery-notes
- * License: GPLv3
+ * Author URI: https://github.com/piffpaffpuff/woocommerce-delivery-notes
+ * License: GPLv3 or later
  * License URI: http://www.opensource.org/licenses/gpl-license.php
  * Text Domain: woocommerce-delivery-notes
  * Domain Path: /languages/

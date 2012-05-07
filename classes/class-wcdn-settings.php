@@ -104,7 +104,7 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 				'<p><strong>' . __( 'For more information:', 'woocommerce-delivery-notes' ) . '</strong></p>'.
 				'<p><a href="http://wordpress.org/extend/plugins/woocommerce-delivery-notes/faq/" target="_blank">' . __( 'Frequently Asked Questions', 'woocommerce-delivery-notes' ) . '</a></p>' .
 				'<p><a href="http://wordpress.org/extend/plugins/woocommerce-delivery-notes/" target="_blank">' . __( 'Project on WordPress.org', 'woocommerce-delivery-notes' ) . '</a></p>' .
-				'<p><a href="https://github.com/deckerweb/woocommerce-delivery-notes" target="_blank">' . __( 'Project on GitHub', 'woocommerce-delivery-notes' ) . '</a></p>' . 
+				'<p><a href="https://github.com/piffpaffpuff/woocommerce-delivery-notes" target="_blank">' . __( 'Project on GitHub', 'woocommerce-delivery-notes' ) . '</a></p>' . 
 				'<p><a href="http://wordpress.org/tags/woocommerce-delivery-notes?forum_id=10" target="_blank">' . __( 'Discuss in the Forum', 'woocommerce-delivery-notes' ) . '</a></p>'
 			);
 		}
@@ -114,7 +114,7 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 		 *
 		 * @since 1.0
 		 */
-		public function add_settings_tab($tabs) {
+		public function add_settings_tab( $tabs ) {
 			$tabs[$this->tab_name] = __( 'Print', 'woocommerce-delivery-notes' );
 			
 			return $tabs;
