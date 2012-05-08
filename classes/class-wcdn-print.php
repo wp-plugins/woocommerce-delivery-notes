@@ -192,6 +192,9 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Print' ) ) {
 					// Set item dimensions
 					$data['dimensions'] = $product->get_dimensions();
 					
+	                // Pass complete item array - more freedom for template developers
+	                $data['item'] = $item;
+					
 					$data_list[] = $data;
 				}
 			}

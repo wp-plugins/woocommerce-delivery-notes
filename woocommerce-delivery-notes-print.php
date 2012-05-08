@@ -1,9 +1,4 @@
 <?php
-/**
- * Load all available data for the Delivery Notes printing page.
- */
-$id = $_GET['order'];
-$name = $_GET['name'];
 
 /**
  * Load Wordpress to use its functions
@@ -19,9 +14,15 @@ if ( !defined( 'ABSPATH' ) ) {
  *
  * @since 1.0
  */
-if (!current_user_can('manage_woocommerce_orders') || empty($id) || empty($name)) {
+if (!current_user_can('manage_woocommerce_orders') || empty($_GET['order']) || empty($_GET['name'])) {
 	wp_die( __( 'You do not have sufficient permissions to access this page.', 'woocommerce-delivery-notes' ) );
 }
+
+/**
+ * Load all available data for the Delivery Notes printing page.
+ */
+$id = $_GET['order'];
+$name = $_GET['name'];
 
 /**
  * Load the order
@@ -91,16 +92,33 @@ if ( !function_exists( 'wcdn_template_print_button' ) ) {
 		<?php
 	}
 }
-	
+
 /**
- * Return default logo 
+ * Return logo id
+ *
+ * @since 1.0
+ */
+if ( !function_exists( 'wcdn_company_logo_id' ) ) {
+	function wcdn_company_logo_id() {
+		global $wcdn;
+		return $wcdn->print->get_setting( 'company_logo_image_id' );
+	}
+}
+
+/**
+ * Return logo html
  *
  * @since 1.0
  */
 if ( !function_exists( 'wcdn_company_logo' ) ) {
 	function wcdn_company_logo() {
 		global $wcdn;
-		return $wcdn->print->get_setting( 'company_logo' );
+		$attachment_id = $wcdn->print->get_setting( 'company_logo_image_id' );
+		if( !empty( $attachment_id ) ) {
+			$attachment_src = wp_get_attachment_image_src( $attachment_id, array( 300, 300 ), false );
+			return '<img src="' . $attachment_src[0] . '" width="' . $attachment_src[1] . '" height="' . $attachment_src[2] . '" />';
+		}
+		return;
 	}
 }
 
@@ -114,7 +132,7 @@ if ( !function_exists( 'wcdn_company_name' ) ) {
 		global $wcdn;
 		$name = trim( $wcdn->print->get_setting( 'custom_company_name' ) );
 		if( !empty( $name ) ) {
-			return wpautop( wptexturize( $name ) , 0);
+			return wpautop( wptexturize( $name ) );
 		} else {
 			return get_bloginfo( 'name' );
 		}
@@ -274,6 +292,21 @@ if ( ! function_exists( 'wcdn_shipping_notes' ) ) {
 }
 
 /**
+ * Return billing phone
+ *
+ * @since 1.0
+ *
+ * @global $wcdn->print
+ * @return string billing phone
+ */
+if ( ! function_exists( 'wcdn_billing_phone' ) ) {
+	function wcdn_billing_phone() {
+		global $wcdn;
+		return $wcdn->print->get_order()->billing_phone;
+	}
+}
+
+/**
  * Return order id
  *
  * @since 1.0
@@ -287,7 +320,17 @@ if ( ! function_exists( 'wcdn_order_number' ) ) {
 		$before = trim( $wcdn->print->get_setting( 'before_order_number' ) );
 		$after = trim( $wcdn->print->get_setting( 'after_order_number' ) );
 		$offset = trim( $wcdn->print->get_setting( 'order_number_offset' ) );
-		$number = $before . ( intval( $offset ) + intval( $wcdn->print->order_id ) ) . $after;
+
+		// get custom order number as provided by the plugin
+		// http://wordpress.org/extend/plugins/woocommerce-sequential-order-numbers/
+		// if custom order number is zero, fall back to ID
+		$order_id = $wcdn->print->order_id;
+
+		if ( !empty( $wcdn->print->get_order()->order_custom_fields['_order_number'] ) ) {
+			$order_id = $wcdn->print->get_order()->order_custom_fields['_order_number'][0];
+		}
+		
+		$number = $before . ( intval( $offset ) + intval( $order_id ) ) . $after;
 		return $number;
 	}
 }
@@ -324,7 +367,7 @@ if ( ! function_exists( 'wcdn_get_order_items' ) ) {
 }
 
 /**
- * Return the order items price
+ * Return the formatted price
  *
  * @since 1.0
  *

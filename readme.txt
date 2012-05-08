@@ -1,9 +1,9 @@
 === WooCommerce Print Invoices & Delivery Notes ===
 Contributors: chabis, daveshine, deckerweb
 Tags: delivery notes, delivery, shipping, print, order, invoice, invoices, woocommerce, woothemes, shop, shop manager, deckerweb
-Requires at least: 3.3 and WooCommerce 1.4+
+Requires at least: 3.3 and WooCommerce 1.5.3+
 Tested up to: 3.4
-Stable tag: 1.2
+Stable tag: 1.2.1
 License: GPLv3 or later
 License URI: http://www.opensource.org/licenses/gpl-license.php
 
@@ -67,7 +67,7 @@ If you want to use your own template then all you need to do is copy the `/wp-co
 *Note:* This works with both single themes and child themes (if you use some framework like Genesis). If your current active theme is a child theme put the custom folder there! (e.g. `/wp-content/themes/your-child-theme-name/woocommerce`)
 
 = Can I use a different custom template for invoices and delivery notes? =
-Yes. Create in the `your-theme-name/woocommerce/delivery-notes` folder a file named `print-invoice.php` and another `print-delivery-note.php`. Now write some nice code to make your templates look as you like. 
+Yes. Create in the `your-theme-name/woocommerce/delivery-notes` folder a file named `print-invoice.php` and another `print-delivery-note.php`. Or just create a file `print.php` to use the same template for invoices and delivery notes. Now write some nice code to make your templates look as you like. 
 
 *Note:* The `print.php` isn't needed when you have a `print-invoice.php` and `print-delivery-note.php` file. However the template system falls back to the `print.php` file inside your themes folder and then inside the plugins folder when `print-invoice.php` and/or `print-delivery-note.php` weren't found.
 
@@ -77,7 +77,7 @@ Various functions are available in the template, especially many Delivery Notes 
 *Please note:* This is only intended for developers who know what they do! Please be careful with adding any code/functions! The default template and functions should fit most use cases.
 
 = What will actually get printed out? =
-No worries, the print buttons at the top and the bottom will automatically be hidden on print!
+No worries, the print bar at the top will automatically be hidden on print!
 
 The other sections get printed as styled via the packaged template (or your custom template if configured). For the shop/company name and all other notes sections: only these will get printed which are actually configured.
 
@@ -90,13 +90,20 @@ The basic intention is to have the plugin at the same time as leightweight and u
 
 == Screenshots ==
 
-1. Plugin's settings page where you can set up to five fields for the delivery note. [Click for larger image view](http://s.wordpress.org/extend/plugins/woocommerce-delivery-notes/screenshot-1.jpg)
+1. Plugin's settings page where you can set up to five fields for the delivery note. [Click for larger image view](http://s.wordpress.org/extend/plugins/woocommerce-delivery-notes/screenshot-1.png)
 2. Single Order Edit page with the meta box and the print buttons.
-3. Invoice printing page with default template - and the five custom sections. [Click for larger image view](http://s.wordpress.org/extend/plugins/woocommerce-delivery-notes/screenshot-3.jpg)
-4. Delivery Note printing page with default template - and the five custom sections. [Click for larger image view](http://s.wordpress.org/extend/plugins/woocommerce-delivery-notes/screenshot-4.jpg)
-5. Help tabs on the plugin's settings page with some info and important plugin links. [Click for larger image view](http://s.wordpress.org/extend/plugins/woocommerce-delivery-notes/screenshot-5.jpg)
+3. Invoice printing page with default template - and the five custom sections. [Click for larger image view](http://s.wordpress.org/extend/plugins/woocommerce-delivery-notes/screenshot-3.png)
+4. Delivery Note printing page with default template - and the five custom sections. [Click for larger image view](http://s.wordpress.org/extend/plugins/woocommerce-delivery-notes/screenshot-4.png)
+5. Help tabs on the plugin's settings page with some info and important plugin links. [Click for larger image view](http://s.wordpress.org/extend/plugins/woocommerce-delivery-notes/screenshot-5.png)
 
 == Changelog ==
+
+= 1.2.1 (2012-05-08) =
+* NEW: Company logo upload.
+* NEW: Order numbering supports the sequential order numbers plugin. The offset field was removed because the plugin is much better. (thanks FoxRunSoftware, welovewordpress).
+* FIX: Print page doesn't block the user when get vars aren't set.
+* UPDATE: Template shows customer phone number (thanks welovewordpress).
+* UPDATE: Template item list contains more data fields (thanks welovewordpress).
 
 = 1.2 (2012-05-06) =
 * IMPORTANT CHANGE: New main development and authorship now: [WordPress.org user "chabis"](http://profiles.wordpress.org/chabis/) - with daveshine (David Decker) remaining as a co-author.
@@ -129,6 +136,9 @@ The basic intention is to have the plugin at the same time as leightweight and u
 * Forked and extended from original plugin for Jigoshop ("Jigoshop Delivery Notes" at GitHub)
 
 == Upgrade Notice ==
+
+= 1.2.1 =
+The sequential order numbers plugin requires at least WooCommerce 1.5.3.
 
 = 1.2 =
 Major additions & improvements: Now with basic invoice support. Code cleanup & improvements. Added new partial translations, updated German translations plus .pot file for translators. Also, new plugin authorship!
