@@ -3,7 +3,7 @@ Contributors: chabis, daveshine, deckerweb
 Tags: delivery notes, delivery, shipping, print, order, invoice, invoices, woocommerce, woothemes, shop, shop manager, deckerweb
 Requires at least: 3.3 and WooCommerce 1.5.3+
 Tested up to: 3.4
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv3 or later
 License URI: http://www.opensource.org/licenses/gpl-license.php
 
@@ -97,6 +97,9 @@ The basic intention is to have the plugin at the same time as leightweight and u
 5. Help tabs on the plugin's settings page with some info and important plugin links. [Click for larger image view](http://www.wordpress.org/extend/plugins/woocommerce-delivery-notes/screenshot-5.png)
 
 == Changelog ==
+
+= 1.2.2 (2012-05-08) =
+* FIX: The media management button "Insert into Post" is now visible again. It was hidden by a the css.
 
 = 1.2.1 (2012-05-08) =
 * NEW: Company logo upload.
