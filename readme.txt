@@ -98,7 +98,7 @@ The basic intention is to have the plugin at the same time as leightweight and u
 
 == Changelog ==
 
-= 1.2.3 (2012-06-03) =
+= 1.2.3 (2012-06-01) =
 * UPDATE: Order totals are now displayed the same way as when the customer reviews the order online (Update custom template to use the feature).
 * UPDATE: Variations and Attributes are now properly displayed (Update custom template to use the feature).
 
