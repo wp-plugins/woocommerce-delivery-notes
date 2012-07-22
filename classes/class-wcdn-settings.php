@@ -294,7 +294,7 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 							<span class="description">
 								<?php _e( 'A company/shop logo representing your business.', 'woocommerce-delivery-notes' ); ?>
 								<br /><strong><?php _e( 'Note:', 'woocommerce-delivery-notes' ); ?></strong>
-								<?php _e( 'The Logo will be resized if it is larger than 300px &times; 300px.', 'woocommerce-delivery-notes' ); ?>
+								<?php _e( 'When the image is printed, its pixel density will automatically be eight times higher than the original. This means, 1 printed inch will correspond to about 288 pixels on the screen. Example: an image with a width of 576 pixels and a height of 288 pixels will have a printed size of about 2 inches to 1 inch.', 'woocommerce-delivery-notes' ); ?>
 							</span>
 						</td>
 					</tr>
@@ -381,25 +381,7 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 			</table>
 			<h3><?php _e( 'Order Numbering Options', 'woocommerce-delivery-notes' ); ?></h3>
 			<table class="form-table">
-				<tbody>		
-					<tr>
-						<th>
-							<label for="<?php echo WooCommerce_Delivery_Notes::$plugin_prefix; ?>before_order_number"><?php _e( 'Before order number', 'woocommerce-delivery-notes' ); ?></label>
-						</th>
-						<td>
-							<input name="<?php echo WooCommerce_Delivery_Notes::$plugin_prefix; ?>before_order_number" type="text" value="<?php echo wp_kses_stripslashes( get_option( WooCommerce_Delivery_Notes::$plugin_prefix . 'before_order_number' ) ); ?>" />
-							<span class="description"><?php _e( 'This text will be placed before the order number ie. "YOUR-TEXT123".', 'woocommerce-delivery-notes' ); ?></span>
-						</td>
-					</tr>
-					<tr>
-						<th>
-							<label for="<?php echo WooCommerce_Delivery_Notes::$plugin_prefix; ?>after_order_number"><?php _e( 'After order number', 'woocommerce-delivery-notes' ); ?></label>
-						</th>
-						<td>
-							<input name="<?php echo WooCommerce_Delivery_Notes::$plugin_prefix; ?>after_order_number" type="text" value="<?php echo wp_kses_stripslashes( get_option( WooCommerce_Delivery_Notes::$plugin_prefix . 'after_order_number' ) ); ?>" />
-							<span class="description"><?php _e( 'This text will be placed after the order number ie. "123YOUR-TEXT".', 'woocommerce-delivery-notes' ); ?></span>
-						</td>
-					</tr>
+				<tbody>	
 					<tr>
 						<th>
 							<label for="<?php echo WooCommerce_Delivery_Notes::$plugin_prefix; ?>order_number_offset"><?php _e( 'Sequential order number', 'woocommerce-delivery-notes' ); ?></label>
