@@ -431,19 +431,17 @@ if ( ! function_exists( 'wcdn_get_order_totals' ) ) {
 		// get totals and remove the semicolon
 		$totals = $wcdn->print->get_order()->get_order_item_totals();
 		
-		$output = array();
-		
-		foreach ( $totals as $total ) {
+		// remove the colon for every label
+		foreach ( $totals as $key => $total ) {
 			$label = $total['label'];
-			$value = $total['value'];
-			$index = strrpos( $label, ':' );
-			if( $index !== false ) {
-				$label = substr_replace( $label, '', $index, 1 );
+			$colon = strrpos( $label, ':' );
+			if( $colon !== false ) {
+				$label = substr_replace( $label, '', $colon, 1 );
 			}		
-			$output[$label] = $value;
+			$totals[$key]['label'] = $label;
 		}
 
-		return $output;
+		return $totals;
 	}
 }
 
