@@ -434,8 +434,12 @@ if ( ! function_exists( 'wcdn_get_order_totals' ) ) {
 		$output = array();
 		
 		foreach ( $totals as $total ) {
-			$label = preg_replace('/:$/', '', $total['label'] ); 
+			$label = $total['label'];
 			$value = $total['value'];
+			$index = strrpos( $label, ':' );
+			if( $index !== false ) {
+				$label = substr_replace( $label, '', $index, 1 );
+			}		
 			$output[$label] = $value;
 		}
 
