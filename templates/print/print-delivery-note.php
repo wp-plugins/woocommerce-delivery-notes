@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html class="<?php wcdn_template_class(); ?>">
+<html class="<?php echo wcdn_get_template_type(); ?>">
 <head>
 	<meta charset="utf-8">
-	<?php wcdn_template_head(); ?>
-	<link rel="stylesheet" href="<?php wcdn_template_stylesheet_url(); ?>style.css" type="text/css" media="screen,print" charset="utf-8"/>
+	<link rel="stylesheet" href="<?php wcdn_stylesheet_url( 'style.css' ); ?>" type="text/css" media="screen,print" />
 </head>
-
 <body>
-	<?php wcdn_template_navigation(); ?>
 	<div id="container">
-		<div id="content">			
+		<div id="content">
 			<div id="page">
 				<div id="letter-header">
 					<div class="heading"><?php if( wcdn_get_company_logo_id() ) : ?><?php wcdn_company_logo(); ?><?php else : ?><?php wcdn_template_title(); ?><?php endif; ?></div>
@@ -50,9 +47,9 @@
 					<table>
 						<thead>
 							<tr>
-								<th class="description" id="description-label"><?php _e('Product', 'woocommerce'); ?></th>
-								<th class="quantity" id="quantity-label"><?php _e('Quantity', 'woocommerce'); ?></th>
-								<th class="price" id="price-label"><?php _e('Totals', 'woocommerce'); ?></th>
+								<th class="product-label"><?php _e('Product', 'woocommerce'); ?></th>
+								<th class="quantity-label"><?php _e('Quantity', 'woocommerce'); ?></th>
+								<th class="totals-label"><?php _e('Totals', 'woocommerce'); ?></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -67,7 +64,7 @@
 								</td>
 								<td class="quantity"><?php echo $item['quantity']; ?></td>
 								<td class="price"><?php echo $item['price']; ?></td>
-							<tr><?php endforeach; endif; ?>
+							</tr><?php endforeach; endif; ?>
 						</tbody>
 					</table>
 				</div><!-- #order-items -->

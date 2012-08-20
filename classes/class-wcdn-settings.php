@@ -2,8 +2,6 @@
 
 /**
  * Settings class
- *
- * @since 1.0
  */
 if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 
@@ -14,8 +12,6 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 		
 		/**
 		 * Constructor
-		 *
-		 * @since 1.0
 		 */
 		public function __construct() {			
 			$this->tab_name = 'woocommerce-delivery-notes';
@@ -24,8 +20,6 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 
 		/**
 		 * Load the class
-		 *
-		 * @since 1.0
 		 */
 		public function load() {
 			add_action( 'admin_init', array( $this, 'load_hooks' ) );
@@ -33,8 +27,6 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 
 		/**
 		 * Load the admin hooks
-		 *
-		 * @since 1.0
 		 */
 		public function load_hooks() {	
 			add_filter( 'plugin_action_links_' . WooCommerce_Delivery_Notes::$plugin_basefile, array( $this, 'add_settings_link') );
@@ -92,8 +84,6 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 		
 		/**
 		 * Check if we are on settings page
-		 *
-		 * @since 1.0
 		 */
 		public function is_settings_page() {
 			if ( isset($_GET['page']) && isset( $_GET['tab'] ) && $_GET['tab'] == $this->tab_name ) {
@@ -105,8 +95,6 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 		
 		/**
 		 * Check if we are on media uploader page
-		 *
-		 * @since 1.0
 		 */
 		public function is_media_uploader_page() {
 		
@@ -119,8 +107,6 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 		
 		/**
 		 * Check if sequential order plugin is activated
-		 *
-		 * @since 1.0
 		 */
 		public function is_woocommerce_sequential_order_numbers_activated() {
 			if ( in_array( 'woocommerce-sequential-order-numbers/woocommerce-sequential-order-numbers.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
@@ -167,8 +153,6 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 		
 		/**
 		 * Add "Settings" link to plugin page
-		 *
-		 * @since 1.0
 		 */
 		public function add_settings_link( $links ) {
 			$settings = sprintf( '<a href="%s" title="%s">%s</a>' , admin_url( 'admin.php?page=woocommerce&tab=' . $this->tab_name ) , __( 'Go to the settings page', 'woocommerce-delivery-notes' ) , __( 'Settings', 'woocommerce-delivery-notes' ) );
@@ -179,8 +163,6 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 		
 		/**
 		 * Load the help system
-		 *
-		 * @since 1.0
 		 */
 		public function load_help() {
 			// Get the hookname and load the help tabs
@@ -194,8 +176,6 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 		
 		/**
 		 * Add the help tabs
-		 *
-		 * @since 1.0
 		 */
 		public function add_help_tabs() {
 			// Check current admin screen
@@ -211,7 +191,7 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 			
 			// Create arrays with help tab titles
 			$screen->add_help_tab(array(
-				'id' => 'wcdn-usage',
+				'id' => 'woocommerce-delivery-notes-usage',
 				'title' => __( 'About the Plugin', 'woocommerce-delivery-notes' ),
 				'content' => 
 					'<h3>' . __( 'Plugin: WooCommerce Print Invoices & Delivery Notes', 'woocommerce-delivery-notes' ) . '</h3>' .
@@ -232,8 +212,6 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 		
 		/**
 		 * Add a tab to the settings page
-		 *
-		 * @since 1.0
 		 */
 		public function add_settings_tab($tabs) {
 			$tabs[$this->tab_name] = __( 'Print', 'woocommerce-delivery-notes' );
@@ -270,9 +248,6 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 
 		/**
 		 * Create the settings page content
-		 *
-		 * @since 1.0
-		 * @version 1.1
 		 */
 		public function create_settings_page() {
 			?>
@@ -370,11 +345,15 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 				<tbody>	
 					<tr>
 						<th>
-							<?php _e( 'Preview opens', 'woocommerce-delivery-notes' ); ?>
+							<?php _e( 'Preview window', 'woocommerce-delivery-notes' ); ?>
 						</th>
 						<td>
-							<input name="<?php echo WooCommerce_Delivery_Notes::$plugin_prefix; ?>open_print_window" type="hidden" value="no" />
-							<label for="<?php echo WooCommerce_Delivery_Notes::$plugin_prefix; ?>open_print_window"><input name="<?php echo WooCommerce_Delivery_Notes::$plugin_prefix; ?>open_print_window" type="checkbox" value="yes" <?php checked( get_option( WooCommerce_Delivery_Notes::$plugin_prefix . 'open_print_window' ), 'yes' );?> /> <?php _e( 'Start printing when the preview page opens', 'woocommerce-delivery-notes' ); ?></label>
+							<fieldset>
+								<input name="<?php echo WooCommerce_Delivery_Notes::$plugin_prefix; ?>show_print_preview" type="hidden" value="no" />
+								<label for="<?php echo WooCommerce_Delivery_Notes::$plugin_prefix; ?>show_print_preview">
+									<input name="<?php echo WooCommerce_Delivery_Notes::$plugin_prefix; ?>show_print_preview" id="<?php echo WooCommerce_Delivery_Notes::$plugin_prefix; ?>show_print_preview" type="checkbox" value="yes" <?php checked( get_option( WooCommerce_Delivery_Notes::$plugin_prefix . 'show_print_preview' ), 'yes' );?> /> <?php _e( 'Show the print preview window', 'woocommerce-delivery-notes' ); ?>
+								</label>
+							</fieldset>
 						</td>
 					</tr>
 				</tbody>
@@ -402,10 +381,14 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 		}
 		
 		/**
+		 * Get the content for an option
+		 */
+		public function get_setting( $name ) {
+			return get_option( WooCommerce_Delivery_Notes::$plugin_prefix . $name );
+		}
+		
+		/**
 		 * Save all settings
-		 *
-		 * @since 1.0
-		 * @version 1.1
 		 */
 		public function save_settings_page() {
 			if ( isset( $_POST[ $this->hidden_submit ] ) && $_POST[ $this->hidden_submit ] == 'submitted' ) {
@@ -429,3 +412,5 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 	}
 	
 }
+
+?>
