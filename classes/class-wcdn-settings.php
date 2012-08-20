@@ -129,7 +129,6 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 		 * Modfy the media uploader input fields
 		 */
 		public function edit_media_options( $fields, $post ) {	
-		    if( $this->is_media_uploader_page() ) {
 				if ( isset( $_GET['post_id'] ) ) {
 					$calling_post_id = absint( $_GET['post_id'] );
 				} elseif ( isset( $_POST ) && count( $_POST ) ) {
@@ -147,7 +146,7 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 						}
 					}
 				}
-			}	
+				
 			return $fields;
 		}
 		
