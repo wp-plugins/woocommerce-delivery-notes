@@ -39,8 +39,8 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 			add_action( 'admin_print_scripts-media-upload-popup', array( $this, 'add_media_scripts' ) );		
 			add_action( 'admin_print_styles-media-upload-popup', array( $this, 'add_media_styles' ) );		
 			add_filter( 'media_upload_tabs', array( $this, 'remove_media_tabs' ) );
-			add_action( 'wp_ajax_load_thumbnail', array( $this, 'load_thumbnail_ajax' ) );
 			add_filter( 'attachment_fields_to_edit', array( $this, 'edit_media_options' ), 20, 2 );
+			add_action( 'wp_ajax_load_thumbnail', array( $this, 'load_thumbnail_ajax' ) );
 		}
 
 		/**
@@ -97,8 +97,7 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 		 * Check if we are on media uploader page
 		 */
 		public function is_media_uploader_page() {
-		
-			if( isset($_GET['post_id']) && isset($_GET['custom_uploader_page']) && $_GET['post_id'] == '0' && $_GET['custom_uploader_page'] == 'true' ) {
+					if( isset($_GET['post_id']) && isset($_GET['custom_uploader_page']) && $_GET['post_id'] == '0' && $_GET['custom_uploader_page'] == 'true' ) {
 				return true;
 			} else {
 				return false;
@@ -120,7 +119,7 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 		 * Remove the media uploader tabs
 		 */
 		public function remove_media_tabs( $tabs ) {
-		    if( isset( $_GET['post_id'] ) && $_GET['post_id'] == 0 ) {
+		    if( $this->is_media_uploader_page() ) {
 	            unset( $tabs['type_url'] );
 		    }
 		    return $tabs;
@@ -130,24 +129,25 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Settings' ) ) {
 		 * Modfy the media uploader input fields
 		 */
 		public function edit_media_options( $fields, $post ) {	
-			if ( isset( $_GET['post_id'] ) ) {
-				$calling_post_id = absint( $_GET['post_id'] );
-			} elseif ( isset( $_POST ) && count( $_POST ) ) {
-				$calling_post_id = $post->post_parent;
-			}
-			
-			// only add the thickbox media managment page (media.php)
-			if( empty( $calling_post_id ) ) {
-				if ( isset( $fields['image-size'] ) && isset( $post->ID ) ) {
-					if( substr($post->post_mime_type, 0, 5) == 'image' && !isset( $_GET['attachment_id'] ) ) {
-						$attachment_id = $post->ID;
-						$fields['additional_buttons']['label'] = '';  
-						$fields['additional_buttons']['input'] = 'html';
-						$fields['additional_buttons']['html'] = get_submit_button( __( 'Use as Company Logo', 'woocommerce-delivery-notes' ), 'button use-image-button', 'use-image-button-' . $attachment_id, false );
+		    if( $this->is_media_uploader_page() ) {
+				if ( isset( $_GET['post_id'] ) ) {
+					$calling_post_id = absint( $_GET['post_id'] );
+				} elseif ( isset( $_POST ) && count( $_POST ) ) {
+					$calling_post_id = $post->post_parent;
+				}
+				
+				// only add the thickbox media managment page (media.php)
+				if( empty( $calling_post_id ) ) {
+					if ( isset( $fields['image-size'] ) && isset( $post->ID ) ) {
+						if( substr($post->post_mime_type, 0, 5) == 'image' && !isset( $_GET['attachment_id'] ) ) {
+							$attachment_id = $post->ID;
+							$fields['additional_buttons']['label'] = '';  
+							$fields['additional_buttons']['input'] = 'html';
+							$fields['additional_buttons']['html'] = get_submit_button( __( 'Use as Company Logo', 'woocommerce-delivery-notes' ), 'button use-image-button', 'use-image-button-' . $attachment_id, false );
+						}
 					}
 				}
-			}
-					
+			}	
 			return $fields;
 		}
 		
