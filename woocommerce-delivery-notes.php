@@ -6,7 +6,7 @@
  * Plugin Name: WooCommerce Print Invoices & Delivery Notes
  * Plugin URI: https://github.com/piffpaffpuff/woocommerce-delivery-notes
  * Description: Print order invoices & delivery notes for WooCommerce shop plugin. You can add company/shop info as well as personal notes & policies to print pages.
- * Version: 1.4.4
+ * Version: 1.4.5
  * Author: Steve Clark, Triggvy Gunderson, David Decker
  * Author URI: https://github.com/piffpaffpuff/woocommerce-delivery-notes
  * License: GPLv3 or later
@@ -321,14 +321,10 @@ if ( !function_exists( 'wcdn_order_number' ) ) {
 	function wcdn_order_number() {
 		global $wcdn;
 
-		// get custom order number as provided by the plugin
-		// http://wordpress.org/extend/plugins/woocommerce-sequential-order-numbers/
-		// if custom order number is zero, fall back to ID
-		$order_id = $wcdn->print->order_id;
-		if( $wcdn->settings->is_woocommerce_sequential_order_numbers_activated() && $wcdn->print->get_order_field( '_order_number' ) ) {
-			$order_id = $wcdn->print->get_order_field( '_order_number' );
-		}
-		echo $order_id;
+		// Trim the hash to have a clean number but still 
+		// support any filters that were applied before.
+		$order_number = ltrim($wcdn->print->get_order()->get_order_number(), '#');
+		echo $order_number;
 	}
 }
 
