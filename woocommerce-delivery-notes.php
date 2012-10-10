@@ -6,7 +6,7 @@
  * Plugin Name: WooCommerce Print Invoices & Delivery Notes
  * Plugin URI: https://github.com/piffpaffpuff/woocommerce-delivery-notes
  * Description: Print order invoices & delivery notes for WooCommerce shop plugin. You can add company/shop info as well as personal notes & policies to print pages.
- * Version: 1.4.5
+ * Version: 1.4.6
  * Author: Steve Clark, Triggvy Gunderson, David Decker
  * Author URI: https://github.com/piffpaffpuff/woocommerce-delivery-notes
  * License: GPLv3 or later
@@ -64,6 +64,13 @@ if ( !class_exists( 'WooCommerce_Delivery_Notes' ) ) {
 		 * Load the hooks
 		 */
 		public function load() {
+			// load localization
+			if ( $this->is_woocommerce_activated() ) {				
+				load_plugin_textdomain( 'woocommerce-delivery-notes', false, dirname( self::$plugin_basefile ) . '/../../languages/woocommerce-delivery-notes/' );
+				load_plugin_textdomain( 'woocommerce-delivery-notes', false, dirname( self::$plugin_basefile ) . '/languages' );
+			}
+			
+			// load the hooks
 			add_action( 'init', array( $this, 'load_hooks' ) );
 			add_action( 'admin_init', array( $this, 'load_admin_hooks' ) );
 		}
@@ -81,10 +88,7 @@ if ( !class_exists( 'WooCommerce_Delivery_Notes' ) ) {
 		 * Load the init hooks
 		 */
 		public function load_hooks() {	
-			if ( $this->is_woocommerce_activated() ) {					
-				load_plugin_textdomain( 'woocommerce-delivery-notes', false, dirname( self::$plugin_basefile ) . '/../../languages/woocommerce-delivery-notes/' );
-				load_plugin_textdomain( 'woocommerce-delivery-notes', false, dirname( self::$plugin_basefile ) . '/languages' );
-				
+			if ( $this->is_woocommerce_activated() ) {
 				$this->includes();
 				$this->writepanel = new WooCommerce_Delivery_Notes_Writepanel();
 				$this->writepanel->load();
