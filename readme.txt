@@ -2,8 +2,8 @@
 Contributors: chabis, daveshine, deckerweb
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=wartamau%40gmail%2ecom&lc=US&item_name=piffpaffpuff&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: delivery notes, delivery, shipping, print, order, invoice, invoices, woocommerce, woothemes, shop, shop manager, deckerweb
-Requires at least: 3.4 and WooCommerce 1.6.3
-Tested up to: 3.4
+Requires at least: 3.4 and WooCommerce 1.6.6
+Tested up to: 3.5.1 and WooCommerce 2.0
 Stable tag: trunk
 License: GPLv3 or later
 License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -100,6 +100,18 @@ For custom and update-secure language files please upload them to `/wp-content/l
 
 == Changelog ==
 
+= 2.0 =
+* FIX: Print privileges for WooCommerce 2.0.
+* FIX: The Hi-DPI resizing of the company logo is working better now.
+* FIX: Plugin activates correctly on a multisite installation.
+* UPDATE: More stable cross-browser print support.
+* UPDATE: Printing without thickbox.
+* UPDATE: Removed the thickbox preview
+* NEW: Template preview links in the settings page (only visible when there is at least one order).
+* NEW: Many template functions can now be filtered with `add_filter`.
+* NEW: In the template the payment method is now displayed via the `wcdn_payment_method` function.
+* NEW: In the template the today's date is now used as default instead of the order date.
+
 = 1.4.6 =
 * FIX: Child theme template files are better loaded.
 * UPDATE: Translations are better loaded.
@@ -185,6 +197,9 @@ For custom and update-secure language files please upload them to `/wp-content/l
 * Forked and extended from original plugin for Jigoshop ("Jigoshop Delivery Notes" at GitHub)
 
 == Upgrade Notice ==
+
+= 1.5 =
+Update your custom style.css. Remove any width and height CSS properties that were assigned to the img tag.
 
 = 1.2.4 =
 Many template functions were updated. Please update your custom template too or everything breaks!

@@ -50,20 +50,26 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Print' ) ) {
 			$this->template_type = $template_type;
 			$this->order_id = $order_id;
 			$this->order->get_order( $this->order_id );
-			$this->get_template( 'print-' . $this->template_type . '.php' );
+			$this->get_template( apply_filters( 'wcdn_template_file_name', 'print-' . $this->template_type . '.php', $template_type, $order_id, $this ) );
+			do_action( 'wcdn_generate_print_content' );
 		}
 		
 		/**
 		 * Load and generate the template output with ajax
 		 */
 		public function generate_print_content_ajax() {		
-			// Let the admin only access the page
+			// Let the backend only access the page
 			if( !is_admin() ) {
 				wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 			}
 			
-			// Check the user privileges and nonce
-			if( !current_user_can( 'manage_woocommerce_orders' ) || empty( $_GET['action'] ) || !check_admin_referer( $_GET['action'] ) ) {
+			// Check the user privileges
+			if( !current_user_can( 'manage_woocommerce_orders' ) && !current_user_can( 'edit_shop_orders' ) ) {
+				wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+			}
+			
+			// Check the nonce
+			if( empty( $_GET['action'] ) || !check_admin_referer( $_GET['action'] ) ) {
 				wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 			}
 			
@@ -173,6 +179,9 @@ if ( ! class_exists( 'WooCommerce_Delivery_Notes_Print' ) ) {
 					
 					// Set item dimensions
 					$data['dimensions'] = $product->get_dimensions();
+						
+					// Set the id
+					$data['id'] = $product->id;
 										
 	                // Pass complete item array
 	                $data['item'] = $item;
