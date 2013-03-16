@@ -6,7 +6,7 @@
  * Plugin Name: WooCommerce Print Invoices & Delivery Notes
  * Plugin URI: https://github.com/piffpaffpuff/woocommerce-delivery-notes
  * Description: Print order invoices & delivery notes for WooCommerce shop plugin. You can add company/shop info as well as personal notes & policies to print pages.
- * Version: 2.0
+ * Version: 2.0.1
  * Author: Steve Clark, Triggvy Gunderson, David Decker
  * Author URI: https://github.com/piffpaffpuff/woocommerce-delivery-notes
  * License: GPLv3 or later
@@ -202,6 +202,19 @@ if ( !function_exists( 'wcdn_template_title' ) ) {
 		} else {
 			echo apply_filters( 'wcdn_template_title', __( 'Delivery Note', 'woocommerce-delivery-notes' ) );
 		}
+	}
+}
+
+/**
+ * Create meta navigation
+ */
+if ( !function_exists( 'wcdn_navigation' ) ) {
+	function wcdn_navigation() {
+		?>
+		<div id="navigation">
+			<a href="#" class="button" onclick="window.print();return false;"><?php _e( 'Print', 'woocommerce-delivery-notes' ); ?></a>
+		</div>
+		<?php
 	}
 }
 

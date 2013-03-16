@@ -1,8 +1,8 @@
 === WooCommerce Print Invoices & Delivery Notes ===
-Contributors: chabis, daveshine, deckerweb
+Contributors: chabis, daveshine
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=wartamau%40gmail%2ecom&lc=US&item_name=piffpaffpuff&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: delivery notes, delivery, shipping, print, order, invoice, invoices, woocommerce, woothemes, shop, shop manager, deckerweb
-Requires at least: 3.4 and WooCommerce 1.6.6
+Requires at least: 3.5 and WooCommerce 1.6.6
 Tested up to: 3.5.1 and WooCommerce 2.0
 Stable tag: trunk
 License: GPLv3 or later
@@ -23,7 +23,7 @@ The plugin adds a new side panel on the order page to allow shop administrators 
 * If there are added "Customer Notes" (regular WooCommerce feature) for an order these will automatically displayed at the bottom of the delivery note.
 * Custom order numbering via the free [WooCommerce Sequential Order Numbers](http://wordpress.org/extend/plugins/woocommerce-sequential-order-numbers/) plugin.
 * Included help tab system.
-* Localized in English, German, Dutch, Swedish, Spanish and French. (thanks to all translators, submit your translation)
+* Localized in English, German, Dutch, Swedish, Spanish, French, Italian, Polish, Russian, Turkish, Slovakian, Finnish and Portuguese (BR). (thanks to all translators, submit your translation) - some of them only partial yet (we'd love to see you [complete them](http://translate.wpautobahn.com/projects/wordpress-plugins-deckerweb/woocommerce-delivery-notes) :).
 
 Credit where credit is due: This plugin here is inspired and based on the work of Steve Clark, Trigvvy Gunderson and the awesome "Jigoshop Delivery Notes" plugin! See below how you can contribute to the further development of both:
 
@@ -32,13 +32,9 @@ Credit where credit is due: This plugin here is inspired and based on the work o
 
 = Feedback =
 * We are open for your suggestions and feedback! Use the [plugin's forum](http://wordpress.org/tags/woocommerce-delivery-notes?forum_id=10) or [report & contribute on GitHub](https://github.com/piffpaffpuff/woocommerce-delivery-notes/issues)
-* Drop Dave a line [@deckerweb](http://twitter.com/#!/deckerweb) on Twitter
-* Follow Dave on [Facebook](http://www.facebook.com/deckerweb.service)
-* Or follow Dave on [+David Decker](http://deckerweb.de/gplus)
 
 = More =
 * [Other plugins by main plugin author](http://github.com/piffpaffpuff)
-* [Other plugins by co-author Dave](http://genesisthemes.de/en/wp-plugins/) or see [his WordPress.org profile page](http://profiles.wordpress.org/daveshine/)
 
 == Installation ==
 
@@ -99,6 +95,9 @@ For custom and update-secure language files please upload them to `/wp-content/l
 5. Help tabs on the plugin's settings page with some info and important plugin links. [Click for larger image view](http://www.wordpress.org/extend/plugins/woocommerce-delivery-notes/screenshot-5.png)
 
 == Changelog ==
+
+= 2.0.1 =
+* FIX: Updated print functionality for better cross-browser support.
 
 = 2.0 =
 * FIX: Print privileges for WooCommerce 2.0.
@@ -231,6 +230,13 @@ Just released into the wild.
 * Spanish (es_ES): Español - user-submitted by @JAVidania
 * French (fr_FR): Français - user-submitted by Olivier
 * Danish (da_DK): Dansk - user-submitted by [boldt](http://boldt.325.dk/)
+* Polish (pl_PL): Polski - user-submitted
+* Russian (ru_RU): русский - user-submitted
+* Finnish (fi): Suomi - user-submitted
+* Italian (it_IT): Italiano - user-submitted
+* Portuguse, Brazilian (pt_BR): Português - user-submitted
+* Slovakian (sk_SK): Slovenčina - user-submitted
+* Turkish (tr_TR): Türk - user-submitted
 * For custom and update-secure language files please upload them to `/wp-content/languages/woocommerce-delivery-notes/` (just create this folder) - This enables you to use fully custom translations that won't be overridden on plugin updates. Also, complete custom English wording is possible with that as well, just use a language file like `woocommerce-delivery-notes-en_US.mo/.po` to achieve that.
 
 **Easy plugin translation platform with GlotPress tool:** [Translate the plugin here](http://translate.wpautobahn.com/projects/wordpress-plugins-deckerweb/woocommerce-delivery-notes)
