@@ -31,10 +31,8 @@ Credit where credit is due: This plugin here is inspired and based on the work o
 * Translate and submit files with our [GlotPress](http://translate.wpautobahn.com/projects/wordpress-plugins-deckerweb/woocommerce-delivery-notes) tool. Read to the [translation](http://wordpress.org/extend/plugins/woocommerce-delivery-notes/other_notes/) section to learn more.
 
 = Feedback =
-* We are open for your suggestions and feedback! Use the [plugin's forum](http://wordpress.org/tags/woocommerce-delivery-notes?forum_id=10) or [report & contribute on GitHub](https://github.com/piffpaffpuff/woocommerce-delivery-notes/issues)
+* We are open for your suggestions and feedback! Use the [plugin's forum](http://wordpress.org/tags/woocommerce-delivery-notes?forum_id=10).
 
-= More =
-* [Other plugins by main plugin author](http://github.com/piffpaffpuff)
 
 == Installation ==
 
@@ -224,8 +222,6 @@ Just released into the wild.
 == Plugin Links ==
 * [Translations (GlotPress)](http://translate.wpautobahn.com/projects/wordpress-plugins-deckerweb/woocommerce-delivery-notes)
 * [User support forums](http://wordpress.org/tags/woocommerce-delivery-notes?forum_id=10)
-* [Developers: reports bugs & issues](https://github.com/piffpaffpuff/woocommerce-delivery-notes/issues)
-* [Developers: contribute](https://github.com/piffpaffpuff/woocommerce-delivery-notes)
 
 == Translations ==
 
