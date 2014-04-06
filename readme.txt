@@ -2,8 +2,8 @@
 Contributors: chabis, daveshine
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=wartamau%40gmail%2ecom&lc=US&item_name=piffpaffpuff&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: delivery notes, delivery, shipping, print, order, invoice, invoices, woocommerce, woothemes, shop, shop manager, deckerweb
-Requires at least: 3.5 and WooCommerce 1.6.6
-Tested up to: 3.5.1 and WooCommerce 2.0
+Requires at least: 3.5 and WooCommerce 2.0
+Tested up to: 3.5.1 and WooCommerce 2.0.8
 Stable tag: trunk
 License: GPLv3 or later
 License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -31,10 +31,8 @@ Credit where credit is due: This plugin here is inspired and based on the work o
 * Translate and submit files with our [GlotPress](http://translate.wpautobahn.com/projects/wordpress-plugins-deckerweb/woocommerce-delivery-notes) tool. Read to the [translation](http://wordpress.org/extend/plugins/woocommerce-delivery-notes/other_notes/) section to learn more.
 
 = Feedback =
-* We are open for your suggestions and feedback! Use the [plugin's forum](http://wordpress.org/tags/woocommerce-delivery-notes?forum_id=10) or [report & contribute on GitHub](https://github.com/piffpaffpuff/woocommerce-delivery-notes/issues)
+* We are open for your suggestions and feedback! Use the [plugin's forum](http://wordpress.org/tags/woocommerce-delivery-notes?forum_id=10).
 
-= More =
-* [Other plugins by main plugin author](http://github.com/piffpaffpuff)
 
 == Installation ==
 
@@ -95,6 +93,12 @@ For custom and update-secure language files please upload them to `/wp-content/l
 5. Help tabs on the plugin's settings page with some info and important plugin links. [Click for larger image view](http://www.wordpress.org/extend/plugins/woocommerce-delivery-notes/screenshot-5.png)
 
 == Changelog ==
+
+= 2.0.2 =
+* FIX: The print data is now generated with the order metadata. This solves a problem where the items weren't displayed when the product was deleted. (thanks MDesigner0)
+* UPDATE: Added some missing translations to the pot.
+* NEW: Added the telephone and email to the template.
+* DELETE: Removed the possibility to show the download links because the urls are always so long that most probably no one will ever use them.
 
 = 2.0.1 =
 * FIX: Updated print functionality for better cross-browser support.
@@ -218,8 +222,6 @@ Just released into the wild.
 == Plugin Links ==
 * [Translations (GlotPress)](http://translate.wpautobahn.com/projects/wordpress-plugins-deckerweb/woocommerce-delivery-notes)
 * [User support forums](http://wordpress.org/tags/woocommerce-delivery-notes?forum_id=10)
-* [Developers: reports bugs & issues](https://github.com/piffpaffpuff/woocommerce-delivery-notes/issues)
-* [Developers: contribute](https://github.com/piffpaffpuff/woocommerce-delivery-notes)
 
 == Translations ==
 
