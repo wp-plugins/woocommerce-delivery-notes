@@ -17,15 +17,15 @@ You can print out invoices and delivery notes for the [WooCommerce](http://wordp
 
 The plugin adds a new side panel on the order page to allow shop administrators to print out the invoice or delivery note. Registered customers can also can also print their order with a button that is added to the order screen.
 
-=== Support ===
+*Support*
 
 Support can take place in the [public support forums](http://wordpress.org/support/plugin/woocommerce-delivery-notes), where the community can help each other out.
 
-=== Contributing ===
+*Contributing*
 
 If you have a patch, or stumbled upon an issue with the source code that isn't a [WooCommerce issue](https://github.com/woothemes/woocommerce/issues?labels=Bug&milestone=22&state=open), you can contribute this [back on GitHub](https://github.com/piffpaffpuff/woocommerce-delivery-notes).
 
-=== Translating ===
+*Translating*
 
 When your language is missing you can contribute a translation to the [GlotPress repository](http://translate.wpautobahn.com/projects/wordpress-plugins-deckerweb/woocommerce-delivery-notes).
 
@@ -203,7 +203,8 @@ Please [contribute your translation](http://translate.wpautobahn.com/projects/wo
 == Changelog ==
 
 3.0.3
-*Attention:* This update works only with WooCommerce 2.1 (or later) and Wordpress 3.8 (or later). Install it only if your system meets the requirements.
+
+Attention: This update works only with WooCommerce 2.1 (or later) and Wordpress 3.8 (or later). Install it only if your system meets the requirements.
 
 * Supports only WooCommerce 2.1 (or later)
 * Bulk print actions
@@ -212,11 +213,13 @@ Please [contribute your translation](http://translate.wpautobahn.com/projects/wo
 * New template structure and action hooks
 
 3.0
+
 * Supports only WooCommerce 2.1 (or later)
 
 == Upgrade Notice ==
 
 3.0.3
+
 * This update works only with WooCommerce 2.1 (or later) and Wordpress 3.8 (or later). Install it only if your system meets the requirements.
 * Prior print templates aren't compatible. Read the [FAQ](http://wordpress.org/plugins/woocommerce-delivery-notes/faq/) to customize the new template.
 * Translations aren't updated, except German.
