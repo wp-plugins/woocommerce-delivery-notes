@@ -33,7 +33,7 @@ When your language is missing you can contribute a translation to the [GlotPress
 
 1. Upload the entire `woocommerce-delivery-notes` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Choose `WooCommerce` then `Settings` and the tab `Print` to adjust the settings to your need.
+3. Choose 'WooCommerce' then 'Settings' and the tab 'Print' to adjust the settings to your need.
 4. Print the order with the side panel on the actual order page.
 
 == Frequently Asked Questions ==
