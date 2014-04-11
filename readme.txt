@@ -85,7 +85,7 @@ add_action( 'wcdn_head', 'my_serif_font_and_large_address', 20 );
 
 Sure, the easiest way is to hide them with some CSS that is hooked in with `wcdn_head`.
 
-An example that hides the whole price column. Paste the code in the `functions.php` file of your theme:
+An example that hides the whole price column and the totals. Paste the code in the `functions.php` file of your theme:
 
 `
 function my_price_free_delivery_note() {
