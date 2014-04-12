@@ -163,6 +163,20 @@ function my_product_image( $product ) {
 add_action( 'wcdn_order_item_before', 'my_product_image' );
 `
 
+= How can I differentiate between invoice and delivery note through CSS? =
+
+The `body` tag contains a class that specifies the template type. The class can be `invoice` or `delivery-note`. You can prefix your style rules to only target one template. For example you could rise the font size for the addresses on the right side:
+
+`
+.invoice .billing-address {
+	font-size: 2em;
+}
+
+.delivery-note .shipping-address {
+	font-size: 2em;
+}
+`
+
 = How do I customize the look of the invoice and delivery note? =
 
 You can use the techniques from the questions above. Or you consider the `wcdn_head` hook to enqueue your own stylesheet. Or for full control, copy the file `style.css` from `woocommerce-delivery-notes/templates/print-order` to `yourtheme/woocommerce/print-order` and start editing it. 
