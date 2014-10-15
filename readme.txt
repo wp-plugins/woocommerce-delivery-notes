@@ -29,6 +29,11 @@ The plugin adds a new side panel on the order page to allow shop administrators 
 * Simple invoice numbering
 * Supports sequential order numbers
 
+= System Requirements =
+
+* WooCommerce 2.2 or later
+* WordPress 3.8 or later
+
 = Support =
 
 Support can take place in the [public support forums](http://wordpress.org/support/plugin/woocommerce-delivery-notes), where the community can help each other out.
