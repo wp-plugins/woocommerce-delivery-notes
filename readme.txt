@@ -244,6 +244,10 @@ Please [contribute your translation](http://translate.wpautobahn.com/projects/wo
 
 == Changelog ==
 
+= 3.4.2 =
+
+* Remove some left over developer comments from the print page
+
 = 3.4.1 =
 
 * Fix an issue where a blank page was printed in WooCommerce 2.1
