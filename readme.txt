@@ -293,6 +293,7 @@ Please [contribute your translation](https://github.com/piffpaffpuff/woocommerce
 
 * Fix - Check protocol of email permalinks
 * Fix - Show preview links on the settings page
+* Fix - Consistent privileges for users with admin access
 
 = 4.1.4 =
 
