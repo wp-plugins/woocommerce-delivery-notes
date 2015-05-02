@@ -423,12 +423,6 @@ Please [contribute your translation](https://github.com/piffpaffpuff/woocommerce
 
 == Upgrade Notice ==
 
-= 3.0.6 =
+= 4.1.5 =
 
-Thanks everybody to help fixing the SSL issue. Please report to the support forums if you still have SSL problems after the update.
-
-= 3.0.3 =
-
-* This update works only with WooCommerce 2.1 (or later) and Wordpress 3.8 (or later). Install it only if your system meets the requirements.
-* Prior print templates aren't compatible. Read the [FAQ](http://wordpress.org/plugins/woocommerce-delivery-notes/faq/) to customize the new template.
-* Translations aren't updated, except German.
+4.1.5 requires at least WooCommerce 2.2 and WordPress 4.0.
