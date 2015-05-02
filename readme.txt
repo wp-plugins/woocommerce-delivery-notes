@@ -286,7 +286,7 @@ Please [contribute your translation](https://github.com/piffpaffpuff/woocommerce
 
 == Changelog ==
 
-**Attention: The minimum Requirements are WooCommerce 2.2 and WordPress 4.0
+= Minimum Requirements: WooCommerce 2.2 and WordPress 4.0 =
 
 = 4.1.5 =
 
